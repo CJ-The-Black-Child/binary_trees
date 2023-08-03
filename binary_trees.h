@@ -53,4 +53,7 @@ size_t binary_tree_height(const binary_tree_t *tree);
 /* Function to measure the depth of a node in a binary tree */
 size_t binary_tree_depth(const binary_tree_t *tree);
 
+/* Function to measure the size of a binary tree */
+size_t binary_tree_size(const binary_tree_t *tree);
+
 #endif /* BINARY_TREES_H*/
