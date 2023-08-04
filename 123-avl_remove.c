@@ -10,10 +10,9 @@
  */
 avl_t *avl_remove(avl_l *root, int value)
 {
-	if (rppt == NULL)
-		return NULL;
-
-	if (value < root ->n)
+	if (root == NULL)
+		return (NULL);
+	if (value < root->n)
 		root->left = avl_remove(root->left, value);
 	else if (value > root->n)
 		root->right = avl_remove(root->right, value);
@@ -32,7 +31,6 @@ avl_t *avl_remove(avl_l *root, int value)
 			{
 				*root = *temp;
 			}
-
 			free(temp);
 		}
 		else
@@ -44,28 +42,24 @@ avl_t *avl_remove(avl_l *root, int value)
 		}
 	}
 	if (root == NULL)
-		return root;
-
-	root->height = 1 + MAX(binary_tree_height(root->left), binary_tree_height(root->right));
-
+		return (root);
+	root->height = 1 + MAX(binary_tree_height(root->left),
+			binary_tree_height(root->right));
 	int balance = binary_tree_balance(root);
 
 	if (balance > 1 && binary_tree_balance(root->left) >= 0)
-		return binary_tree_rotate_right(root);
-
+		return (binary_tree_rotate_right(root));
 	if (balance < -1 && binary_tree_balance(root->right) <= 0)
-		return binary_tree_rotate_left(root);
+		return (binary_tree_rotate_left(root));
 	if (balance > 1 && binary_tree_balance(root->left) < 0)
 	{
 		root->left = binary_tree_rotate_left(root->left);
-		return binary_tree_rotate_right(root);
+		return (binary_tree_rotate_right(root));
 	}
-
-	if (balance < -1 && binary_tree_balance(root-.right) > 0)
+	if (balance < -1 && binary_tree_balance(root->right) > 0)
 	{
 		root->right = binary_tree_rotate_right(root->right);
-		return binary_tree_rotate_left(root);
+		return (binary_tree_rotate_left(root));
 	}
-
-	return root;
+	return (root);
 }
