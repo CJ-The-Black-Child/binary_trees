@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-
+#include <stdlib.h>
 /**
  * avl_remove - Removes a node from an AVL tree.
  * @root: Pointer to the root node of the tree.
@@ -8,7 +8,7 @@
  * Return: A pointer to the new root node of the tree after removing the
  * value.
  */
-avl_t *avl_remove(avl_l *root, int value)
+avl_t *avl_remove(avl_t *root, int value)
 {
 	if (root == NULL)
 		return (NULL);

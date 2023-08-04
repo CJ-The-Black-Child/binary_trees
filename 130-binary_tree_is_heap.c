@@ -9,7 +9,7 @@
  */
 int is_complete(const binary_tree_t *tree, int index, int count)
 {
-	if (tree == null)
+	if (tree == NULL)
 		return (1);
 
 	if (index >= count)

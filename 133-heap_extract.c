@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-
+#include <stdlib.h>
 /**
  * heap_extract - Extracts the root node of a Max Binary Heap
  * @root: Double pointer to the root node of the heap

@@ -34,7 +34,7 @@ bst_t *bst_remove(bst_t *root, int value)
 
 		bst_t *temp = bst_find_min(root->right);
 		root->n = temp->n;
-		root->right = bst_remove(root->right, temp->n)l
+		root->right = bst_remove(root->right, temp->n);
 	}
 	return (root);
 }
