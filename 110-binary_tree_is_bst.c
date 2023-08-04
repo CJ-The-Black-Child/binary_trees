@@ -32,5 +32,6 @@ int is_bst_util(const binary_tree_t *tree, const binary_tree_t **prev)
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	const binary_tree_t *prev = NULL;
+
 	return (is_bst_util(tree, &prev));
 }
