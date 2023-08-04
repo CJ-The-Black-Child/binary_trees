@@ -20,6 +20,18 @@ typedef struct binary_tree_s avl_t;
 /* Max Binary Heap */
 typedef struct binary_tree_s heap_t;
 
+
+/**
+ * struct levelorder_queue_s - level order traversal queue.
+ * @node: A node of the binary tree.
+ * @next: The next node to traverse to in the binary tree.
+ */
+typedef struct levelorder_queue_s
+{
+	binary_tree_t *node;
+	struct levelorder_queue_s *next;
+} levelorder_queue_t;
+
 /* Function to create a binary tree node */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 
@@ -82,6 +94,11 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 
 /* Function to traverse a binary tree usinig level-order traversal */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+void pop(levelorder_queue_t **head);
+void pint_push(binary_tree_t *node, levelorder_queue_t *head,
+		levelorder_queue_t **tail, void (*func)(int));
+void free_queue(levelorder_queue_t *head);
+levelorder_queue_t *create_node(binary_tree_t *node);
 
 /* Advanced tasks additions*/
 int binary_tree_is_ancestor(const binary_tree_t *node, const binary_tree_t *target);
@@ -106,23 +123,6 @@ int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 void binary_tree_print(const binary_tree_t *tree);
-
-typedef struct queue_node_s
-{
-	void *data;
-	struct queue_node_s *next;
-} queue_node_t;
-
-typedef struct queue_s
-{
-	queue_node_t *front;
-	queue_node_t *rear;
-} queue_t;
-
-queue_t *create_queue(void);
-void enqueue(queue_t *queue, void *data);
-void *dequeue(queue_t *queue);
-void free_queue(queue_t *queue);
 
 void binary_tree_print(const binary_tree_t *tree);
 
